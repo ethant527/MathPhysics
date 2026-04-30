@@ -4,4 +4,4 @@ Most of these files were first created and tested in Jupyter Notebook files and 
 
 I plan to add to NumericalSolver.py script tridiagonal finite difference methods amoung other various numerical methods.
 
-Other plans include to make more complex machine learning models for applications of interest, as well as exploring reinforcement learning models also (plan to begin with poker, blackjack player, etc using open ai gym potentially)
+Other plans include to make more complex machine learning models for applications of interest, as well as exploring reinforcement learning models also (plan to begin with poker, blackjack player, etc using open ai gym potentially). As well as exploring potentially uses of PINNS for physics, maths problems i am interested in. 
