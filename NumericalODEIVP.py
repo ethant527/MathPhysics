@@ -7,6 +7,7 @@ from scipy.integrate._ivp import DOP853
 
 # class of numerical solvers, each method is a static method that takes the same arguments and returns the same output format
 # contains scipy solvers, my hard-coded solvers, plotting and representation functions
+# have already used this script to solve things for my maths classes so has proven useful
 
 class ODESolve:
 
@@ -334,9 +335,23 @@ class ScipySolver:
 
 
 
-class Results:
 
-    @staticmethod
+
+if __name__ == "__main__":
+
+   # example derivative for a simple harmonic oscillator
+    def harmonic_oscillator(t, y):
+        pos, vel = y
+
+        # d2xdt2 = -(k/m) * x = -w^2 * x , w = sqrt(k/m), (harmonic oscillator equation)
+        # simple version: d2xdt2 = -x
+
+        # dxdt = velocity = v
+        # dvdt = acceleration = -pos = -x
+        acceleration = -pos
+        return [vel, acceleration]
+    
+
     def compare_solutions(results_custom, results_pro, t_steps, title_suffix_custom="Heun Euler", title_suffix_pro="RK45"):
 
 
@@ -382,23 +397,6 @@ class Results:
         plt.legend()
         plt.show()
 
-
-
-
-if __name__ == "__main__":
-
-   # example derivative for a simple harmonic oscillator
-    def harmonic_oscillator(t, y):
-        pos, vel = y
-
-        # d2xdt2 = -(k/m) * x = -w^2 * x , w = sqrt(k/m), (harmonic oscillator equation)
-        # simple version: d2xdt2 = -x
-
-        # dxdt = velocity = v
-        # dvdt = acceleration = -pos = -x
-        acceleration = -pos
-        return [vel, acceleration]
-
     t_steps = np.linspace(0, 20, 100)
     y_initial = np.array([1.0, 0.0])
 
@@ -407,4 +405,4 @@ if __name__ == "__main__":
     results_pro    = ScipySolver.pythonrk45(harmonic_oscillator, y_initial, t_steps)
 
     #plotting
-    Results.compare_solutions(results_custom, results_pro, t_steps, title_suffix_custom="Heun Euler", title_suffix_pro="RK45") 
+    compare_solutions(results_custom, results_pro, t_steps, title_suffix_custom="Heun Euler", title_suffix_pro="RK45") 
